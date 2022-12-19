@@ -1,1 +1,1 @@
-Repo for low level programming in C.
+A repository for low level programming in C.
