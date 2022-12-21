@@ -1,27 +1,52 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * times_table - prints the 9 times table
- * Return: void
- */
-void times_table(void)
+  * print_times_table - Prints a multiplication table up to param
+  * @n: The number to be treated
+  *
+  * Return: Number matrix
+  */
+void print_times_table(int n)
 {
-	int i;
-	int j;
-	int p;
+	int x, y, z;
 
-	for (i = 0; i < 10; i++)
+	if (n >= 0 && n <= 14)
 	{
-		for (j = 0; j < 10; j++)
+		for (x = 0; x <= n; x++)
 		{
-			p = i * j;
-			if (j == 0)
-				printf("%d,", p);
-			else if (j > 0 && j < 9)
-				printf("%3d,", p);
-			else
-				printf("%3d\n", p);
+			for (y = 0; y <= n; y++)
+			{
+				z = x * y;
+				if (z > 99)
+				{
+					_putchar(',');
+					_putchar(32);
+					_putchar((z / 100) + '0');
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
+				}
+				else if (z > 9)
+				{
+					_putchar(',');
+					_putchar(32);
+					_putchar(32);
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
+				}
+				else
+				{
+					if (y != 0)
+					{
+						_putchar(',');
+						_putchar(32);
+						_putchar(32);
+						_putchar(32);
+					}
+					_putchar(z + '0');
+				}
+			}
+			_putchar('\n');
 		}
 	}
 }
+
