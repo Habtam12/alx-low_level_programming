@@ -1,14 +1,12 @@
 #include "main.h"
 
 /**
- * _isdigit - checkes whether the character is digit
- * @c: the character to be checked
- * Return: 1 if it is digit or 0 if it is not
+ * mul - multiplies 2 digits
+ * @a: the first digit
+ * @b: the second digit
+ * Return: the product
  */
-int _isdigit(int c)
+int mul(int a, int b)
 {
-	if (c < 48 || c > 57)
-		return (0);
-	else
-		return (1);
+	return (a * b);
 }
