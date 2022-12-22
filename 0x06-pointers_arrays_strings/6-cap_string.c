@@ -9,7 +9,6 @@
 /**
 * cap_string - capitalizes all words of a string
 *  @str: the string to change the first letter of a word in uppercase
-*
 *  Return: capitalizes letters
 */
 
