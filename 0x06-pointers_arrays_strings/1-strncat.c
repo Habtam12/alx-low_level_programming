@@ -2,6 +2,8 @@
 
 #include <string.h>
 
+
+
 /**
  *
  *  * _strncat - concatenates two strings
