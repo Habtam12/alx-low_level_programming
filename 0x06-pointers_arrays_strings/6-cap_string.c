@@ -7,14 +7,10 @@
 
 
 /**
- *
- *  * cap_string - capitalizes all words of a string.
- *
- *   * @str: pointer for the string
- *
- *    * Return: pointer for the capitalized string.
- *
- *     */
+*cap_string - capitalizes all words of a string.
+*@str: pointer for the string
+*Return: pointer for the capitalized string.
+*/
 
 char *cap_string(char *str)
 
