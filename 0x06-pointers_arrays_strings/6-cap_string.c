@@ -9,6 +9,7 @@
 /**
  * cap_string - capitalizes all words of a string.
  *@str: pointer for the string
+ *
  *Return: pointer for the capitalized str
  */
 char *cap_string(char *str)
