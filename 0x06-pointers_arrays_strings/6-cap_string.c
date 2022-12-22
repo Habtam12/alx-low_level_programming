@@ -25,7 +25,7 @@ char *cap_string(char *str)
 	printf("%lu\n", sizeof(sep));
 	for (i = 0; *(str + i) != '\0'; i++)
 		for (j = 0; sep[j] != '\0'; j++)
-		
+			;	
 	return (str);
 
 }
