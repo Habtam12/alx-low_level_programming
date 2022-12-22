@@ -3,20 +3,13 @@
 #include <string.h>
 
 
-
 /**
- *
- *  * _strncpy - copies a string
- *
- *   * @dest: pointer for destination string
- *
- *    * @src: pointer for source string
- *
- *     * @n: number of bytes from the source string
- *
- *      * Return: pointer for the copied string
- *
- *       */
+ *_strncpy - copies a string
+ *@dest: pointer for destination string
+ *@src: pointer for source string
+ *@n: number of bytes from the source string
+ *Return: pointer for the copied string
+ */
 
 char *_strncpy(char *dest, char *src, int n)
 
