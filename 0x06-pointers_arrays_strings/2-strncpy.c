@@ -1,27 +1,31 @@
 #include "main.h"
 
-#include <string.h>
-
-
-
 /**
  *
- *  * _strncpy - copies a string
+ *  * _strchr - locates a character in a string
  *
- *   * @dest: pointer for destination string
+ *   * @s: string input
  *
- i*    * @src: pointer for source string
+ *    * @c: character to find
  *
- *     * @n: number of bytes from the source string
+ *     * Return: pointer to first occurence of c character
  *
- *      * Return: pointer for the copied string
- *
- *       */
+ *      */
 
-char *_strncpy(char *dest, char *src, int n)
+char *_strchr(char *s, char c)
 
 {
 
-		return (strncpy(dest, src, n));
+		unsigned int i;
+
+
+
+			for (i = 0; s[i] != '\0'; i++)
+
+						if (s[i] == c)
+
+										break;
+
+				return (s[i] == c ? (s + i) : '\0');
 
 }
