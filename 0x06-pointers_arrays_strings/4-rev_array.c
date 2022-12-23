@@ -3,25 +3,25 @@
 
 
 /**
-* reverse_array - Reverses the content of an array of integers.
-*
-* @a: The array of integers to be reversed.
-* @n: The number of elements in the array.
-*/
+ 
+ * reverse_array - reverses the content of an array of integers
+
+ * @a: pointer to the array
+
+ * @n: number of elements to be reversed in the array
+ * Return: void
+ 
+ */
+
 void reverse_array(int *a, int n)
 
 {
 
 		int i;
-		int temp;
-		i = 0;
-		n = n - 1;
-		while (i < n)
-		{
-			temp = a[i];
-			a[i] = a[n];
-			a[n] = temp;
-			i++;
-			n--;
-		}
+		int array[1000];
+		for (i = 0; i < n; i++)
+			array[i] = *(a + n - 1 - i);
+		for (i = 0; i < n; i++)
+			*(a + i) = array[i];
+
 }
