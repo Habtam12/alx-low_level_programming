@@ -1,113 +1,161 @@
+#include "main.h"
+
+
+
+char *add_strings(char *n1, char *n2, char *r, int r_index);
+
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
+
+
+
+/**
+ *
+ *  * add_strings - Adds the numbers stored in two strings.
+ *
+ *   * @n1: The string containing the first number to be added.
+ *
+ *    * @n2: The string containing the second number to be added.
+ *
+ *     * @r: The buffer to store the result.
+ *
+ *      * @r_index: The current index of the buffer.
+ *
+ *       *
+ *
+ *        * Return: If r can store the sum - a pointer to the result.
+ *
+ *         *         If r cannot store the sum - 0.
+ *
+ *          */
+
+char *add_strings(char *n1, char *n2, char *r, int r_index)
+
+{
+
+		int num, tens = 0;
+
+
+
+			for (; *n1 && *n2; n1--, n2--, r_index--)
+
+					{
+
+								num = (*n1 - '0') + (*n2 - '0');
+
+										num += tens;
+
+												*(r + r_index) = (num % 10) + '0';
+
+														tens = num / 10;
+
+															}
+
+
+
+				for (; *n1; n1--, r_index--)
+
+						{
+
+									num = (*n1 - '0') + tens;
+
+											*(r + r_index) = (num % 10) + '0';
+
+													tens = num / 10;
+
+														}
+
+
+
+					for (; *n2; n2--, r_index--)
+
+							{
+
+										num = (*n2 - '0') + tens;
+
+												*(r + r_index) = (num % 10) + '0';
+
+														tens = num / 10;
+
+															}
+
+
+
+						if (tens && r_index >= 0)
+
+								{
+
+											*(r + r_index) = (tens % 10) + '0';
+
+													return (r + r_index);
+
+														}
+
+
+
+							else if (tens && r_index < 0)
+
+										return (0);
+
+
+
+								return (r + r_index + 1);
+
+}
+
+/**
+ *
+ *  * infinite_add - Adds two numbers.
+ *
+ *   * @n1: The first number to be added.
+ *
+ *    * @n2: The second number to be added.
+ *
+ *     * @r: The buffer to store the result.
+ *
+ *      * @size_r: The buffer size.
+ *
+ *       *
+ *
+ *        * Return: If r can store the sum - a pointer to the result.
+ *
+ *         *         If r cannot store the sum - 0.
+ *
+ *          */
+
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 {
 
-		int l1, l2, tmpl, rl, i, sum, num1, num2, carry;
-
-			char tmp[10000];
+		int index, n1_len = 0, n2_len = 0;
 
 
 
-				rl = i = l1 = l2 = sum = num1 = num2 = carry = 0;
+			for (index = 0; *(n1 + index); index++)
 
-					while (n1[l1] != '\0')
+						n1_len++;
 
-								l1++;
 
-						while (n2[l2] != '\0')
 
-									l2++;
+				for (index = 0; *(n2 + index); index++)
 
-							if (l1 + 2 > size_r || l2 + 2 > size_r)
+							n2_len++;
 
-										return (0);
 
-								l1--;
 
-									l2--;
+					if (size_r <= n1_len + 1 || size_r <= n2_len + 1)
 
-										while (i <= l1 || i <= l2)
+								return (0);
 
-												{
 
-															num1 = num2 = 0;
 
-																	if (i <= l1)
+						n1 += n1_len - 1;
 
-																					num1 = n1[l1 - i] - '0';
+							n2 += n2_len - 1;
 
-																			if (i <= l2 && (l2 - i) >= 0)
+								*(r + size_r) = '\0';
 
-																							num2 = n2[l2 - i] - '0';
 
-																					sum = num1 + num2 + carry;
 
-																							if (sum >= 10)
-
-																										{
-
-																														carry = 1;
-
-																																	sum -= 10;
-
-																																			}
-
-																									else
-
-																													carry = 0;
-
-																											r[i] = sum + '0';
-
-																													i++;
-
-																															rl++;
-
-																																}
-
-											if (carry > 0)
-
-													{
-
-																r[i] = carry + '0';
-
-																		r[i + 1] = '\0';
-
-																			}
-
-												i = tmpl = 0;
-
-													while (i <= rl)
-
-															{
-
-																		tmp[i] = r[rl - i];
-
-																				tmpl++;
-
-																						i++;
-
-																							}
-
-														i = 0;
-
-															while (i < tmpl)
-
-																	{
-
-																				if (r[i] == '\0')
-
-																							{
-
-																											break;
-
-																													}
-
-																						r[i] = tmp[i];
-
-																								i++;
-
-																									}
-
-																return (r);
+									return (add_strings(n1, n2, r, --size_r));
 
 }
