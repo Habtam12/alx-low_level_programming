@@ -10,19 +10,15 @@
  *Return: void
  
  */
-
-void reverse_array(int *a, int n)
-
+void reverse_array(int *a , int n)
 {
-	int index, placeholder;
-	placeholder = 0;
-	n--;
-	for (index = 0; index < n; index++)
+	int i,d1,temp1;
+	d1=n - 1;
+	for (i = 0; i<n/2; i++)
 	{
-		placeholder = a[n];
-		a[n] = a[index];							
-		a[index] = placeholder;
-		n--;
+		temp1=a[i];
+		a[i] = a[d1];
+		a[d1--] = temp1;
 	}
-
+	
 }
