@@ -5,10 +5,10 @@
 
 
 /**
- * leet - encodes a string into 
- * @s: pointer for the string
- * Return: pointer for the encoded string
- */
+  * leet - encodes a string into 
+  * @s: pointer for the string
+  * Return: pointer for the encoded string
+  */
 
 char *leet(char *str)
 
