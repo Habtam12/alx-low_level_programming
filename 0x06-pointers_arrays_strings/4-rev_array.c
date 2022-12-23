@@ -7,15 +7,25 @@
 *@n: number of elements to be reversed in the array
 *Return: void
 */
+
 void reverse_array(int *a, int n)
 
 {
-	int temp, index;
-	for (index = n - 1; index >= n / 2; index--)
-	{
-		temp = a[n - 1 - index];
-		a[n - 1 - index] = a[index];
-		a[index] = temp;
-	}
+
+		int i;
+
+			int array[1000];
+
+
+
+				for (i = 0; i < n; i++)
+
+							array[i] = *(a + n - 1 - i);
+
+
+
+					for (i = 0; i < n; i++)
+
+								*(a + i) = array[i];
 
 }
