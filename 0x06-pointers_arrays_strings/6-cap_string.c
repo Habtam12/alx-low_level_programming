@@ -14,55 +14,26 @@
   * Return: pointer for the capitalized string.
 
   */
-
-char *cap_string(char *entry)
+char *cap_string(char *str)
 
 {
 
-		int conversion, index, count;
+		int i;
+
+			int j;
+
+				char sep[] = " \t\n,;.!?\"(){}";
 
 
 
-			char chars[] = {' ', ',', ';', '.', '!',
+					printf("%lu\n", sizeof(sep));
 
-							 '?', '"', '(', ')', '{', '}',  '\t', '\n', '\0'};
+						for (i = 0; *(str + i) != '\0'; i++)
 
-				conversion = 32;
+									for (j = 0; sep[j] != '\0'; j++)
 
+													;
 
-
-					for (index = 0; entry[index] != '\0'; index++)
-
-							{
-
-										if (entry[index] >= 'index' && entry[index] <= 'z')
-
-													{
-
-																	entry[index] =  entry[index] - conversion;
-
-																			}
-
-												conversion = 0;
-
-														for (count = 0; chars[count] != '\0'; count++)
-
-																	{
-
-																					if (chars[count] == entry[index])
-
-																									{
-
-																														conversion = 32;
-
-																																		break;
-
-																																					}
-
-																							}
-
-															}
-
-						return (entry);
+							return (str);
 
 }
