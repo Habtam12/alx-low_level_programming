@@ -9,26 +9,34 @@
 *  @a: This is the input array
 *  @n: This is the positions have the array
 */
-
 void reverse_array(int *a, int n)
 
 {
 
-		int i;
-
-			int array[1000];
+		int i, last;
 
 
 
-				for (i = 0; i < n; i++)
+			last = n - 1;
 
-							array[i] = *(a + n - 1 - i);
+				for (i = 0; i < n / 2; i++)
+
+						{
+
+									int start, end;
 
 
 
-					for (i = 0; i < n; i++)
+											start = a[i];
 
-								*(a + i) = array[i];
+													end = a[last];
+
+															a[i] = end;
+
+																	a[last] = start;
+
+																			last--;
+
+																				}
 
 }
-
