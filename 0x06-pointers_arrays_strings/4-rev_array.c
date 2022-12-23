@@ -6,16 +6,16 @@
 *@a: pointer to the array
 *@n: number of elements to be reversed in the array
 *Return: void
-* */
+*/
 void reverse_array(int *a, int n)
 
 {
-	int tmp, index;
+	int temp, index;
 	for (index = n - 1; index >= n / 2; index--)
 	{
-		tmp = a[n - 1 - index];
+		temp = a[n - 1 - index];
 		a[n - 1 - index] = a[index];
-		a[index] = tmp;
+		a[index] = temp;
 	}
 
 }
