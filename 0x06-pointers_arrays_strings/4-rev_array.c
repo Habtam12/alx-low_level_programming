@@ -2,7 +2,6 @@
 
 /**
   *reverse_array - Write a function that reverses the content of an array of
- *
  *integers.
  *@a: This is the input array
  *@n: This is the positions have the array
