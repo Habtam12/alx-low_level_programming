@@ -5,7 +5,6 @@
  * can be considered identical, otherwise return 0.
  * @s1: string to compare to
  * @s2: string with wild character
- *
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
