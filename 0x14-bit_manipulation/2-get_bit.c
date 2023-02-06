@@ -1,46 +1,21 @@
-#include <stdio.h>
+#include "main.h"
+
 /**
- * print_binary - prints decimal as binary
- * @n: long integer
+ * get_bit - returns the value of a bit ar a given index
+ * @n: string of 0 and 1 chars
+ * @index: index of the bit you want to get
+ *
+ * Return: value of the bit at index
  */
 
-void print_binary(unsigned long int n)
+int get_bit(unsigned long int n, unsigned int index)
 {
-	signed long int size;
-	char c;
-	int flag;
-
-	size = sizeof(n) * 8 - 1;
-
-	if (n == 0)
+	if (index > 64)
 	{
-		printf("0");
-		return;
+		return (-1);
 	}
-
-	if (n == 1)
+	else
 	{
-		printf("1");
-		return;
-	}
-
-	flag = 0;
-
-	while (size >= 0)
-	{
-		c = (n >> size) & 1;
-
-		if (flag == 1)
-			putchar(c + '0');
-		else
-		{
-			if (c == 1)
-			{
-				putchar(c + '0');
-				flag = 1;
-			}
-		}
-
-		size -= 1;
+		return (n >> index & 1);
 	}
 }
