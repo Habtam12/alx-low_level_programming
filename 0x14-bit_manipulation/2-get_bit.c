@@ -1,29 +1,46 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include "main.h"
-
 /**
-* get_bit - function that returns the value of a bit at a given index.
-* @n: number
-* @index: the index
-* Description: function that returns the value of a bit at a given index.
-* Return: the value of the bit at index index or -1 if an error occured
-*/
+ * print_binary - prints decimal as binary
+ * @n: long integer
+ */
 
-int get_bit(unsigned long int n, unsigned int index)
+void print_binary(unsigned long int n)
 {
-	if (index >= 64)
-		return (-1);
+	signed long int size;
+	char c;
+	int flag;
 
-	n = n >> index;
+	size = sizeof(n) * 8 - 1;
 
-	if ((n & 1) == 1)
+	if (n == 0)
 	{
-		return (1);
-	}
-	else
-	{
-	return (0);
+		printf("0");
+		return;
 	}
 
+	if (n == 1)
+	{
+		printf("1");
+		return;
+	}
+
+	flag = 0;
+
+	while (size >= 0)
+	{
+		c = (n >> size) & 1;
+
+		if (flag == 1)
+			putchar(c + '0');
+		else
+		{
+			if (c == 1)
+			{
+				putchar(c + '0');
+				flag = 1;
+			}
+		}
+
+		size -= 1;
+	}
 }
