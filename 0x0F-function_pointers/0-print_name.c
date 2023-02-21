@@ -1,37 +1,16 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include "function_pointers.h"
 /**
- * main- Entry point
+ * print_name- this functions prints a name
 (* a blank line
- *@argc: the number of parameters.
- *@argv: the parameeters in the case the number ob bytes.
-* Description: this program prints opcodes in hexa)?
-* Return: 0 in succes
+ *@name: string to print.
+ *@f: this a function pointer, that recieves a string.
+* Description: this function prints a name)?
+(* section header: the header of this function is function_pointers.h)*
+* Return: this is a void function no return
 */
-int main(int argc, char *argv[])
+void print_name(char *name, void (*f)(char *))
 {
-	int i, n;
-
-
-	if (argc != 2)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	n = atoi(argv[1]);
-	if (n < 0)
-	{
-		printf("Error\n");
-		exit(2);
-	}
-
-	for (i = 0; i < n; i++)
-	{
-		printf("%02hhx", *((char *)main + i));
-		if (i < n - 1)
-			printf(" ");
-		else
-			printf("\n");
-	}
-	return (0);
+	if (name == NULL || f == NULL)
+		return;
+	(*f)(name);
 }
